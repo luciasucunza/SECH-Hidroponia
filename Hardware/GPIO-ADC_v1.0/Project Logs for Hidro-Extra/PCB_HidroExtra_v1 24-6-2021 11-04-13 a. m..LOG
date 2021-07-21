@@ -1,0 +1,45 @@
+Added Component: Designator=J2(MOLEX6)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J5(MOLEX6)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J6(MOLEX6)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J16(MOLEX6)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J18(MOLEX3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J19(MOLEX3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetJ2_1 Pin=J2-1
+Added Pin To Net: NetName=NetJ2_2 Pin=J2-2
+Added Pin To Net: NetName=NetJ2_3 Pin=J2-3
+Added Pin To Net: NetName=NetJ2_4 Pin=J2-4
+Added Pin To Net: NetName=NetJ2_5 Pin=J2-5
+Added Pin To Net: NetName=NetJ2_6 Pin=J2-6
+Added Pin To Net: NetName=NetC4_1 Pin=J5-1
+Added Pin To Net: NetName=NetJ5_2 Pin=J5-2
+Added Pin To Net: NetName=NetJ5_3 Pin=J5-3
+Added Pin To Net: NetName=NetJ6_2 Pin=J6-2
+Added Pin To Net: NetName=NetJ6_3 Pin=J6-3
+Added Pin To Net: NetName=NetJ6_4 Pin=J6-4
+Added Pin To Net: NetName=NetJ6_5 Pin=J6-5
+Added Pin To Net: NetName=NetJ6_6 Pin=J6-6
+Added Pin To Net: NetName=NetJ5_2 Pin=J16-3
+Added Pin To Net: NetName=GND Pin=J16-4
+Added Pin To Net: NetName=GND Pin=J16-5
+Added Pin To Net: NetName=5v Pin=J16-6
+Added Pin To Net: NetName=5v Pin=J18-1
+Added Pin To Net: NetName=NetJ2_6 Pin=J18-2
+Added Pin To Net: NetName=GND Pin=J18-3
+Added Pin To Net: NetName=5v Pin=J19-1
+Added Pin To Net: NetName=NetJ5_3 Pin=J19-2
+Added Pin To Net: NetName=GND Pin=J19-3
+Added Member To Class: ClassName=connectors Member=Component J2 Entrada Digitales
+Added Member To Class: ClassName=connectors Member=Component J5 Entradas Analógicas
+Added Member To Class: ClassName=connectors Member=Component J6 Entrdas Digitales
+Added Member To Class: ClassName=connectors Member=Component J16 Sensor de PH
+Added Member To Class: ClassName=connectors Member=Component J18 DHT11
+Added Member To Class: ClassName=connectors Member=Component J19 LM35
+Added Room: Name=adc
+Added Room: Name=connectors
+Added Room: Name=pump

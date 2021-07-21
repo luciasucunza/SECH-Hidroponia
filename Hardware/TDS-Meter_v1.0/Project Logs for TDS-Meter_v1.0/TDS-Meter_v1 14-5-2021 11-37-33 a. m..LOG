@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=NetR5_2 Pin=U1-9
+Removed Pin From Net: NetName=NetC4_2 Pin=U1-10
+Change Component Comment : Designator=C8 Old Comment=0.1uF New Comment=1uF
+Change Component Comment : Designator=C9 Old Comment=0.1uF New Comment=1uF
+Change component parameters: Designator = "C8"; Footprint = "0603"; UniqueID = "\QDYYSLDA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage-Rated"; Value = "6.3V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C9"; Footprint = "0603"; UniqueID = "\ULGGMLHJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage-Rated"; Value = "6.3V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC4_2 Pin=U1-9
+Added Pin To Net: NetName=NetR5_2 Pin=U1-10
+Added Room: Name=Sheet1

@@ -1,0 +1,30 @@
+Added Component: Designator=C10(CAPPR2-5x11)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "2ndMfgr"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "3rdMfgr"; Value = "Vishay / MAL214097103E3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current"; Value = "90 mARMS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Panasonic"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MfgPartNum"; Value = "EEE-FC1H220P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "8mm dia."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage-Rated"; Value = "50V"; VariantName = "[No Variations]"
+Added Component: Designator=C11(CAPPR2-5x11)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "2ndMfgr"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "3rdMfgr"; Value = "Vishay / MAL214097103E3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current"; Value = "90 mARMS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Panasonic"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MfgPartNum"; Value = "EEE-FC1H220P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "8mm dia."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage-Rated"; Value = "50V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=-3.3v Pin=C11-2
+Added Pin To Net: NetName=NetC10_1 Pin=C10-1
+Added Net: Name=NetC10_1
+Added Pin To Net: NetName=NetC10_2 Pin=C10-2
+Added Net: Name=NetC10_2
+Added Member To Class: ClassName=Sheet1 Member=Component C10 Cap Pol
+Added Member To Class: ClassName=Sheet1 Member=Component C11 Cap Pol

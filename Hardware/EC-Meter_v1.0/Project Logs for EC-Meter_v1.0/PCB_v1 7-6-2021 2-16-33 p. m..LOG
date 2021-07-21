@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=+12v Pin=P?-1
+Added Pin To Net: NetName=+12v Pin=P?-3
+Added Pin To Net: NetName=NetP?_1 Pin=P?-1
+Added Pin To Net: NetName=NetP?_1 Pin=R10-2
+Added Pin To Net: NetName=NetP?_1 Pin=U4-6
+Added Net: Name=NetP?_1

@@ -1,0 +1,8 @@
+Entre más exacto es el voltaje de 5V más exacto será la medición del PH
+
+Hay que esperar un cachito para tener un valor confiable, a veces arda en llegar al valor
+
+El que está mas pegado al conector BNC de la sonda es el que regula el offset, el otro es el del límite de pH.
+	Offset:  	el rango de media de la sonda oscila entre valores negativos y positivos. El 0 representa un pH de 7.0. Por lo tanto forzaremos un pH de 7.0 desconectando la sonda del circuito y cortocircuitando la parte interna del conector BNC con la exterior. Con un multímetro medimos el valor del pin Po y ajustamos el potenciómetro para que sea 2.5V.
+	Límite de pH: 	Este potenciómetro es para establecer una valor del límite del circuito sensor de pH que hace que el LED rojo se encienda y la señal de pin Do se ponga en ON.
+ 

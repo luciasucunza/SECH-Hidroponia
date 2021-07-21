@@ -1,0 +1,12 @@
+Change Component Footprint: Designator=C10 Old Footprint=CAPPR2-5x11 New Footprint=CAPC3216x130N
+Change Component Footprint: Designator=C11 Old Footprint=CAPPR2-5x11 New Footprint=CAPC3216x130N
+Change Component Footprint: Designator=U1 Old Footprint=DIP-16 New Footprint=SO-16_N
+Added Component: Designator=U3(SO8_N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC10_1 Pin=U3-2
+Added Pin To Net: NetName=GND Pin=U3-3
+Added Pin To Net: NetName=NetC10_2 Pin=U3-4
+Added Pin To Net: NetName=-3.3v Pin=U3-5
+Added Pin To Net: NetName=+3.3v Pin=U3-8
+Added Member To Class: ClassName=Sheet1 Member=Component U3 ICL7660
+Added Room: Name=Sheet1
