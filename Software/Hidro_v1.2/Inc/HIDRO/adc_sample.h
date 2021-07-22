@@ -48,8 +48,6 @@ extern float ec;
                                 //        Vref_cal  = Valor en memoria
                                 //        Vref_data = ADC_CHANNEL_VREFINT
 
-#define VREFINT_CAL_ADDR  ((uint16_t *)((uint32_t)0x1FFF75AA)) 
-
 /*States ---------------------------------------------------------------------*/
 enum{
   ADC_WAITING,
