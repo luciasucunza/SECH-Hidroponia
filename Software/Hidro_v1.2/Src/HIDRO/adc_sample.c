@@ -137,8 +137,10 @@ void adc_task(void)
     {
       ADC_State = ADC_SAMPLING_EC;
       break;
-    }     
-    ADC_State = ADC_WAITING;
+    }
+    
+    Flag_ADC_Event_Storage = 1;           // Antes de esperar aviso
+    ADC_State = ADC_WAITING;        
     break;
   
   case ADC_SAMPLING_EC:     
@@ -160,6 +162,7 @@ void adc_task(void)
     //Done
     Flag_ADC_Cmd_Ec = 0;                 // Borrar pedido
        
+    Flag_ADC_Event_Storage = 1;          // Antes de esperar aviso 
     ADC_State = ADC_WAITING;
     break;
     

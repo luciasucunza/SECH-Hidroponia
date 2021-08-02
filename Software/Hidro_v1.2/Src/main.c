@@ -38,9 +38,9 @@
 #include "config_flash.h"
 #include "datetime.h"
 #include "di.h"
-#include "ff.h"
 #include "irrigation.h"
 #include "lcd.h"
+#include "sd_storage.h"
 #include "ui.h"
 #include "weather.h"
 
@@ -82,7 +82,6 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
   Flag_Main_1s_Event = 1;
 }
 
-
 /* USER CODE END 0 */
 
 /**
@@ -92,13 +91,7 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  FATFS SDFatFS;    /* File system object for SD logical drive */
 
-  FRESULT res;                                  /* FatFs function common result code */
-  uint32_t byteswritten;             /* File write/read counts */
-  uint8_t wtext[] = "STM32 FATFS works great!"; /* File write buffer */
-  uint8_t rtext[_MAX_SS];                       /* File read buffer */
-  
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -147,34 +140,16 @@ int main(void)
   // Load flash into ram
   get_flash();
   
+  // Inits
   LCDInit(); 
   Flag_LCD_On = 1;
   refresh_global_datetime();
   ui_init();
   clear_buttons();
+  //sd_init();
   
   HAL_TIM_Base_Start(&htim2);
-	HAL_GPIO_WritePin(DO8_GPIO_Port, DO8_Pin, GPIO_PIN_SET);
-
-  if(f_mount(&SDFatFS, (TCHAR const*)SDPath, 0) != FR_OK)
-    Error_Handler();
-  
-  if(f_mkfs( (TCHAR const*) SDPath, FM_ANY, 0, rtext, sizeof(rtext)) != FR_OK)
-    Error_Handler();
-    
-  //Open file for writing (Create)
-  if(f_open(&SDFile, "otr_98.TXT", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
-    Error_Handler();
-//  
-//  //Write to the text file
-  res = f_write(&SDFile, wtext, strlen((char *)wtext), (void *)&byteswritten);
-  if((byteswritten == 0) || (res != FR_OK))
-    Error_Handler();
-//    
-  f_close(&SDFile);
-
-  f_mount(&SDFatFS, (TCHAR const*)NULL, 0);
-  
+	HAL_GPIO_WritePin(DO8_GPIO_Port, DO8_Pin, GPIO_PIN_SET);  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -195,8 +170,8 @@ int main(void)
       irrigation_1s_tick();
       weather_1s_tick();
       ui_1s_tick();    
+      sd_1s_tick();
       
-  
     //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! 
       Flag_ADC_Cmd_Ph=1;
       Flag_ADC_Cmd_Ec=1;
@@ -209,7 +184,8 @@ int main(void)
     di_task();
     irrigation_task();
     weather_task();  
-    ui_task();
+    ui_task();  
+    sd_task();
     
   }
   /* USER CODE END 3 */

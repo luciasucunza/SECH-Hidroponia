@@ -155,6 +155,7 @@ void irrigation_1s_tick(void)
 void irrigation_task(void)
 {
   static uint8_t aux_substance;
+  static uint8_t irrigation_count = 0;
   
   switch(Irrigation_State)
   {    
@@ -177,10 +178,20 @@ void irrigation_task(void)
       open_water_tap();
       break;
     }
-
-    // Si el nivel esta OK  => Revuelvo y comienzo a medir
-    mixer(ON);
-    Irrigation_State = IRRIGA_REVOLVING;
+    
+    // Si el nivel esta OK  => Analizo si hay que medir
+    if(!irrigation_count)
+    {      
+      // Hay que medir => Revuelvo y comienzo a medir
+      irrigation_count = read_flash(ID_Regulation_Freq);
+      mixer(ON);
+      Irrigation_State = IRRIGA_REVOLVING;
+      Irrigation_Timer = T_REVOLVE_SOLUTION;          
+      break;
+    }
+    
+    // No hay que medir => Voy a descansar antes de revolver y regar
+    Irrigation_State = IRRIGA_RESTING;
     Irrigation_Timer = T_REVOLVE_SOLUTION;    
     break;
     
@@ -331,6 +342,7 @@ void irrigation_task(void)
     if(!No_Flow_Timer)
     {
       mixer(OFF);
+      irrigation_count--;
       Irrigation_State = IRRIGA_FLOWING;        
       if(Global_Date[HOUR]>= read_flash(ID_Sunrise) && Global_Date[HOUR]<read_flash(ID_Sunset))
         Irrigation_Timer = read_flash(ID_Time_Flow_Day);
@@ -347,6 +359,7 @@ void irrigation_task(void)
       {
         Flag_Irriga_Growing = 0;
         Flag_Irriga_Operate = 0;
+        irrigation_count = 0;
       }
       Irrigation_State = IRRIGA_INIT;
     }

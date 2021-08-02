@@ -30,6 +30,7 @@ extern uint8_t Initial_Date[6];
 #define Flag_Irriga_Ec_L            Flags_Irrigation.Bit._3
 #define Flag_Irriga_Growing         Flags_Irrigation.Bit._4 // Indica si estoy dentro del periodo de crecimiento de un cultivo
 #define Flag_Irriga_Operate         Flags_Irrigation.Bit._5 // Indica si está operando, puede no estarlo por mantenimiento, dentro de un periodo de crecimiento
+#define Flag_Irriga_Electrode       Flags_Irrigation.Bit._6 // Indica si el electrodo está sumergido o no
 
 #define OFF               0
 #define ON                1

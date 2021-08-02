@@ -34,11 +34,13 @@ ID_Time_No_Flow_Night,  //s Tiempo entre dos regados, tiene en cuenta el tiempo 
 ID_Sunrise,             //h Hora en la que comienza el día
 ID_Sunset,              //h Hora en la que finaliza el día
 ID_Grow_Time,           //d Tiempo en días que se deber regar el cultivo
+ID_Regulation_Freq,     // Cantidad de riegos hasta la proxima regulación
+                        // Lo único que altera esto es que el nivel de agua sea menor al minimo
 
 // Nombre                              (RECETA 2)
-
 ID_Recipe2_0, ID_Recipe2_1, ID_Recipe2_2,  ID_Recipe2_3,  ID_Recipe2_4,  ID_Recipe2_5,  ID_Recipe2_6,  ID_Recipe2_7,
-ID_Recipe2_8, ID_Recipe2_9, ID_Recipe2_10, ID_Recipe2_11, ID_Recipe2_12, ID_Recipe2_13, ID_Recipe2_14, ID_Recipe2_15,ID_Ec_Min_2,            // Conductividad mínima de la solución 
+ID_Recipe2_8, ID_Recipe2_9, ID_Recipe2_10, ID_Recipe2_11, ID_Recipe2_12, ID_Recipe2_13, ID_Recipe2_14, ID_Recipe2_15,
+ID_Ec_Min_2,            // Conductividad mínima de la solución 
 ID_Ec_Max_2,            // Conductividad máxima de la solución 
 ID_Ph_Min_2,            // Ph mínimo de la solución  (x10)  
 ID_Ph_Max_2,            // Ph máximo de la solución  (x10)  
@@ -49,6 +51,8 @@ ID_Time_No_Flow_Night_2,//s Tiempo entre dos regados, tiene en cuenta el tiempo 
 ID_Sunrise_2,           //h Hora en la que comienza el día
 ID_Sunset_2,            //h Hora en la que finaliza el día
 ID_Grow_Time_2,         //d Tiempo en días que se deber regar el cultivo
+ID_Regulation_Freq_2,   // Cantidad de riegos hasta la proxima regulación
+                        // Lo único que altera esto es que el nivel de agua sea menor al minimo
 
 ID_Ph_Y_Intercept,      // Calibración lineal del Ph (Dividir por -1000)
 ID_Ph_Slope,            // Calibración lineal del Ph (Dividir por 1000)

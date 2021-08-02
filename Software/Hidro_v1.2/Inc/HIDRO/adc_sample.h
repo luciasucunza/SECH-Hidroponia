@@ -29,6 +29,7 @@ extern float ec;
 #define Flag_ADC_Error_Ph	           Flags_ADC.Bit._4
 #define Flag_ADC_Error_Ec            Flags_ADC.Bit._5
 #define Flag_ADC_Electrode_Ready     Flags_ADC.Bit._6
+#define Flag_ADC_Event_Storage       Flags_ADC.Bit._7
 
 #define ENA_P0_Pin    DO1_Pin
 #define ENA_P0_Port   DO1_GPIO_Port

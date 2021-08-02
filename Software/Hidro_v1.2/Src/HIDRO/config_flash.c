@@ -4,6 +4,14 @@
 /* Private Functions ---------------------------------------------------------*/
 bool update_flash (void);
 
+
+
+
+
+
+
+
+
 /* Initial flash values ------------------------------------------------------*/
 __root const uint32_t config_flash[] @ FLASH_PAGE1_ADDRESS =
 {
@@ -26,7 +34,9 @@ __root const uint32_t config_flash[] @ FLASH_PAGE1_ADDRESS =
 7,
 19, 	 		 
 70,
-       
+5, 
+
+
 // Nombre                              (RECETA 2)
 'P', 'E', 'P', 'E', ' ', ' ', ' ', ' ',	
 ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',	
@@ -41,7 +51,9 @@ __root const uint32_t config_flash[] @ FLASH_PAGE1_ADDRESS =
 6,
 19, 	 		 
 70,
+10,
                  
+
 237794, 		// Dividir por -1000
 0074,			// Dividir por 1000
 0,      		// 
@@ -78,6 +90,8 @@ __root const uint32_t config_min[] =
 3,
 16, 	 		
 1,
+0,
+
 
 // Nombre                              (RECETA 2)
 ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',	
@@ -93,7 +107,9 @@ __root const uint32_t config_min[] =
 3,
 16, 	 		
 1,
-                 
+0,
+  
+
 0, 		
 0,			  
 0,      		
@@ -127,6 +143,8 @@ __root const uint32_t config_max[] =
 10,
 23,
 365,
+100,
+
 
 // Nombre                              (RECETA 2)
 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z',
@@ -142,7 +160,9 @@ __root const uint32_t config_max[] =
 10,
 23, 
 365,
-                 
+100,
+    
+
 0xffff,			// Dividir por -1000
 0xffff,			// Dividir por 1000
 0xffff,      		 

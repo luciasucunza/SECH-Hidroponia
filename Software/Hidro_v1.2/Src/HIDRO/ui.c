@@ -58,7 +58,9 @@ void ui_task(void)
   static uint8_t Ui_Config_Var, Ui_Config_Ini, Ui_Config_Max;
   static uint8_t id_offset;
      
-  
+  //--------------------------------------
+  //    ESTO SE VA A DE ACÁ ES SOLO PORQUE NO ESTÁ EN FUNCIONAMIENTO IRRIGA
+  //--------------------------------------
   Flag_Weather_Hum_L = 1;
   Flag_Weather_Temp_L = 1;
   Flag_Irriga_Ph_H = 1;
@@ -67,6 +69,9 @@ void ui_task(void)
   Flag_Di_Level_Macro_Nut = 1;
   Flag_Di_Level_Herbicide = 1;
   Flag_Di_Level_Acidulant = 1;
+  Flags_SD_Mount = 1;
+  
+  
   // Modo: Low power -----------------------------------------------------------
   if(!Ui_Sleep)
   {
@@ -109,6 +114,11 @@ void ui_task(void)
       Ui_Disp_Buffer[NAME_SIZE] = '\0';
       
       LCDStr_2(0, L0, Ui_Disp_Buffer);
+      
+      if(Flags_SD_Mount)
+        LCDStr(18, L1, "SD" );
+      if(Global_Date[SEC] & 0x01)
+        LCDStr(18, L1, "  " );             // Blink alarma
       
       /* Linea 2 -------------------------------------------------------------*/
       sprintf ((char*)Ui_Disp_Buffer, "PH  %.2f (%.1f-%.1f)", ph, (float)read_flash(ID_Ph_Min)/10, (float)read_flash(ID_Ph_Max)/10);
@@ -516,14 +526,14 @@ void ui_task(void)
   case RECIPE_1_FLOW_D_0:
   case RECIPE_2_FLOW_D_0:
     Ui_Config_Var = ID_Time_Flow_Day+id_offset;
-    LCDScrollOn( L4, "> Ciclo de riego de día: Bomba encendida" );
+    LCDScrollOn( L4, "> Ciclo de riego de dia: Bomba encendida" );
     Ui_State++;
     break; 
     
   case RECIPE_1_NOFLOW_D_0:
   case RECIPE_2_NOFLOW_D_0:
     Ui_Config_Var = ID_Time_No_Flow_Day+id_offset;
-    LCDScrollOn( L4, "> Ciclo de riego de día: Bomba apagada" );
+    LCDScrollOn( L4, "> Ciclo de riego de dia: Bomba apagada" );
     Ui_State++;
     break; 
     
@@ -537,7 +547,7 @@ void ui_task(void)
   case RECIPE_1_NOFLOW_N_0:
   case RECIPE_2_NOFLOW_N_0:
     Ui_Config_Var = ID_Time_No_Flow_Night+id_offset;
-    LCDScrollOn( L4, "> Ciclo de riego de noche: Bomba apagada (receta 1)" );
+    LCDScrollOn( L4, "> Ciclo de riego de noche: Bomba apagada" );
     Ui_State++;
     break; 
     
@@ -566,6 +576,13 @@ void ui_task(void)
   case RECIPE_2_PH_L_0:
     Ui_Config_Var = ID_Ph_Min+id_offset;
     LCDScrollOn( L4, "> Ph minimo de la solucion" );
+    Ui_State++;
+    break;    
+
+  case RECIPE_1_REG_FREQ_0:
+  case RECIPE_2_REG_FREQ_0:
+    Ui_Config_Var = ID_Regulation_Freq+id_offset;
+    LCDScrollOn( L4, "> Frecuencia de regulacion de la solucion" );
     Ui_State++;
     break;    
     
@@ -612,6 +629,13 @@ void ui_task(void)
   case RECIPE_2_PH_H_1:
   case RECIPE_2_PH_L_1:
     sprintf((char*)Ui_Disp_Buffer, "%d.%d  ", (uint32_t)read_flash(Ui_Config_Var)/10, read_flash(Ui_Config_Var)%10);
+    LCDStr(5, L5, Ui_Disp_Buffer);
+    Ui_State++;
+    break;      
+
+  case RECIPE_1_REG_FREQ_1:
+  case RECIPE_2_REG_FREQ_1:
+    sprintf((char*)Ui_Disp_Buffer, "Cada %d riegos", read_flash(Ui_Config_Var));
     LCDStr(5, L5, Ui_Disp_Buffer);
     Ui_State++;
     break;
@@ -814,6 +838,7 @@ void ui_task(void)
   case RECIPE_1_EC_L_BUTTON_A:
   case RECIPE_1_PH_H_BUTTON_A:
   case RECIPE_1_PH_L_BUTTON_A:
+  case RECIPE_1_REG_FREQ_BUTTON_A:
   case RECIPE_2_NAME_BUTTON_A:
   case RECIPE_2_SUNRISE_BUTTON_A:
   case RECIPE_2_SUNSET_BUTTON_A:
@@ -826,6 +851,7 @@ void ui_task(void)
   case RECIPE_2_EC_L_BUTTON_A:
   case RECIPE_2_PH_H_BUTTON_A:
   case RECIPE_2_PH_L_BUTTON_A:
+  case RECIPE_2_REG_FREQ_BUTTON_A:
     
   case SYS_CLOCK_BUTTON_A:
   case SYS_CONTRAST_BUTTON_A:
@@ -862,6 +888,7 @@ void ui_task(void)
   case RECIPE_1_EC_L_BUTTON_B:
   case RECIPE_1_PH_H_BUTTON_B:
   case RECIPE_1_PH_L_BUTTON_B:
+  case RECIPE_1_REG_FREQ_BUTTON_B:
   case RECIPE_2_GROW_BUTTON_B:
   case RECIPE_2_EC_H_BUTTON_B:
   case RECIPE_2_EC_L_BUTTON_B:
@@ -873,6 +900,7 @@ void ui_task(void)
   case RECIPE_2_NOFLOW_D_BUTTON_B:
   case RECIPE_2_FLOW_N_BUTTON_B:
   case RECIPE_2_NOFLOW_N_BUTTON_B:
+  case RECIPE_2_REG_FREQ_BUTTON_B:
     
   case SYS_CONTRAST_BUTTON_B:
     
