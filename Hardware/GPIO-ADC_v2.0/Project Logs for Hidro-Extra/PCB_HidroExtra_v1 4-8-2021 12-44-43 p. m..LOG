@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=+5v Pin=J19-1
+Removed Pin From Net: NetName=GND Pin=J19-2
+Change Component Footprint: Designator=V1 Old Footprint=HDR1X3 New Footprint=TB-3x200
+Added Pin To Net: NetName=GND Pin=J19-1
+Added Pin To Net: NetName=+5v Pin=J19-2
+Added Member To Class: ClassName=adc Member=Component R17 1.0K

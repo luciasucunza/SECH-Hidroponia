@@ -27,6 +27,7 @@ void sd_init(void)
 //  Moutn SD  
   if(f_mount(&SDFatFS, (TCHAR const*)SDPath, 0) != FR_OK)
     Error_Handler();
+  Flags_SD_Mount = 1; 
     
 //  Open file for writing (Create)
   if(f_open(&SDFile, "Readme.txt", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
@@ -39,29 +40,36 @@ void sd_init(void)
     Error_Handler();
 
 //  Close file for writing (Create)    
-  f_close(&SDFile);
+  if(f_close(&SDFile) != FR_OK)
+    Error_Handler();
+  Flags_SD_Mount = 0;  
 
 //  Unmoutn SD
   f_mount(&SDFatFS, (TCHAR const*)NULL, 0);
 
+  SD_Timer = 10;
   return;
 }
 
 void sd_1s_tick(void)
 {
-  if(!SD_Timer)
+  if(SD_Timer)
     SD_Timer--;
 }
 
 void sd_task(void)
 {
   FATFS SDFatFS;                   /* File system object for SD logical drive */
-  uint8_t rtext[_MAX_SS];                           /* File read buffer */
-  uint8_t wtext[] = "DD,HH,MM,TT,HH,EEEE,PH,TT";    /* File write buffer */
+  char wtext[] = "DD,HH,MM,TT,HH,EEEE,PH,TT";    /* File write buffer */
   uint32_t byteswritten;                            /* File write/read counts */
   static uint8_t month = 0;
   static char f_name[] = "XX_XX.txt";
   char aux;
+  
+  if(!SD_Timer)
+  {
+    Flag_ADC_Electrode_Ready = 0;
+  }
   
   switch(SD_State)
   {
@@ -74,6 +82,7 @@ void sd_task(void)
     Flags_SD_Mount = 1; 
     if(month != Global_Date[MONTH])
     {
+      month = Global_Date[MONTH];
       aux = (char)bin_to_bcd(Global_Date[YEAR]);
       f_name[0] = 0x30 + (aux >> 4);
       f_name[1] = 0x30 + (aux & 0x0F);
@@ -103,22 +112,29 @@ void sd_task(void)
     { 
       Flag_ADC_Event_Storage = 0;
       get_data_csv(wtext);
-      if(f_write(&SDFile, wtext, strlen((char *)wtext), (void *)&byteswritten) != FR_OK)
+      if(f_write(&SDFile, wtext, strlen(wtext), (void *)&byteswritten) != FR_OK)
         Error_Handler();
-      if(byteswritten == 0)
-        Error_Handler();
+      if(byteswritten == 0) 
+        Error_Handler();      
       SD_State = SD_CLOSE;
     }
     break;   
     
   case SD_CLOSE:
-    f_close(&SDFile);
+    if(f_close(&SDFile) != FR_OK)
+      Error_Handler();
     f_mount(&SDFatFS, (TCHAR const*)NULL, 0);
     Flags_SD_Mount = 0; 
     SD_State = SD_WAITING;
     break;     
     
   default:
+    if(f_close(&SDFile) != FR_OK)
+      Error_Handler();
+    if(f_mount(&SDFatFS, (TCHAR const*)NULL, 0)!= FR_OK)
+      Error_Handler();
+    Flags_SD_Mount = 0; 
+    
     SD_State = SD_CLOSE;    
   }  
 }
@@ -135,15 +151,17 @@ void get_data_csv(char *wtext)
   wtext[1] = 0x30 + (aux & 0x0F);
   aux = (char)bin_to_bcd(Global_Date[HOUR]);
   wtext[3] = 0x30 + (aux >> 4);
-  wtext[4] = 0x30 + (aux & 0x0F);
+  wtext[4] = 0x30 + (aux &   0x0F);
   aux = (char)bin_to_bcd(Global_Date[MIN]);
   wtext[6] = 0x30 + (aux >> 4);
   wtext[7] = 0x30 + (aux & 0x0F);
-  sprintf(str, "%2d", temperature);
+  sprintf(str, "%2d", (int)temperature);
   wtext[9] = str[0];
   wtext[10] = str[1];
-  sprintf(str, "%2d", humidity);
-  wtext[9] = str[0];
-  wtext[10] = str[1];
-  
+  sprintf(str, "%2d", (int)humidity);
+  wtext[12] = str[0];
+  wtext[13] = str[1];
+  sprintf(str, "%2d", (int)sol_temp);
+  wtext[23] = str[0];
+  wtext[24] = str[1];  
 }

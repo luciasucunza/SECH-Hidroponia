@@ -1,0 +1,16 @@
+Added Component: Designator=R10(0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "56K"; VariantName = "[No Variations]"
+Added Component: Designator=R27(0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "82K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD2_1 Pin=R10-1
+Added Pin To Net: NetName=NetD3_1 Pin=R10-2
+Added Pin To Net: NetName=-5v Pin=R27-1
+Added Pin To Net: NetName=NetR27_2 Pin=R27-2
+Added Member To Class: ClassName=adc Member=Component R10 56K
+Added Member To Class: ClassName=adc Member=Component R27 82K

@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=+5v Pin=J15-1
+Removed Member From Class: ClassName=connectors Member=J15
+Removed Member From Class: ClassName=connectors Member=R13
+Removed Member From Class: ClassName=connectors Member=R15
+Removed Member From Class: ClassName=adc Member=R20
+Removed Member From Class: ClassName=connectors Member=R20
+Removed Member From Class: ClassName=adc Member=R24
+Removed Member From Class: ClassName=connectors Member=R24
+Removed Member From Class: ClassName=adc Member=R29
+Removed Member From Class: ClassName=adc Member=R31
+Added Member To Class: ClassName=adc Member=Component R12 82K
+Added Member To Class: ClassName=adc Member=Component R16 1.0K
+Added Member To Class: ClassName=adc Member=Component R17 1.0K
+Added Member To Class: ClassName=adc Member=Component R18 1.0K
+Added Member To Class: ClassName=pump Member=Component R18 100
+Added Member To Class: ClassName=connectors Member=Component R26 10K
+Added Member To Class: ClassName=connectors Member=Component R27 10K
+Added Member To Class: ClassName=connectors Member=Component R28 10K
+Added Member To Class: ClassName=connectors Member=Component R30 10K

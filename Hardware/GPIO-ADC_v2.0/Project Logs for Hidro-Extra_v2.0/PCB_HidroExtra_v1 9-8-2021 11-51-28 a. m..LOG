@@ -1,0 +1,8 @@
+Added Component: Designator=R8(0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "6.8K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ17_2 Pin=R8-1
+Added Pin To Net: NetName=NetR8_2 Pin=R8-2
+Added Member To Class: ClassName=adc Member=Component R8 6.8K

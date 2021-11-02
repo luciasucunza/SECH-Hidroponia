@@ -68,9 +68,7 @@ void ui_task(void)
   Flag_Di_Level_Micro_Nut = 1;
   Flag_Di_Level_Macro_Nut = 1;
   Flag_Di_Level_Herbicide = 1;
-  Flag_Di_Level_Acidulant = 1;
-  Flags_SD_Mount = 1;
-  
+  Flag_Di_Level_Acidulant = 1;  
   
   // Modo: Low power -----------------------------------------------------------
   if(!Ui_Sleep)
@@ -117,9 +115,8 @@ void ui_task(void)
       
       if(Flags_SD_Mount)
         LCDStr(18, L1, "SD" );
-      if(Global_Date[SEC] & 0x01)
-        LCDStr(18, L1, "  " );             // Blink alarma
-      
+      else
+        LCDStr(18, L1, "  " );
       /* Linea 2 -------------------------------------------------------------*/
       sprintf ((char*)Ui_Disp_Buffer, "PH  %.2f (%.1f-%.1f)", ph, (float)read_flash(ID_Ph_Min)/10, (float)read_flash(ID_Ph_Max)/10);
       LCDStr(0,L2,Ui_Disp_Buffer);

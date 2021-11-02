@@ -1,0 +1,15 @@
+Added Component: Designator=V1(TB-3x200)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Variable Resistor, Thru-Hole; 3 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "VR5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Set Position"; Value = "0.5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Sim Note"; Value = "Enter the Resistance value and the set point into parameter fields."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "22K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR27_2 Pin=V1-1
+Added Pin To Net: NetName=NetR11_1 Pin=V1-2
+Added Pin To Net: NetName=NetR9_1 Pin=V1-3
+Added Member To Class: ClassName=adc Member=Component V1 22K

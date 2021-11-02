@@ -1,0 +1,14 @@
+Removed Member From Class: ClassName=pump Member=R26
+Removed Member From Class: ClassName=pump Member=R27
+Removed Member From Class: ClassName=pump Member=R28
+Removed Member From Class: ClassName=pump Member=R29
+Change Component Footprint: Designator=R13 Old Footprint=0805 New Footprint=0603
+Change Component Footprint: Designator=R14 Old Footprint=0805 New Footprint=0603
+Change Component Footprint: Designator=R26 Old Footprint=0805 New Footprint=0603
+Change Component Footprint: Designator=R27 Old Footprint=0805 New Footprint=0603
+Change Component Footprint: Designator=R28 Old Footprint=0805 New Footprint=0603
+Change Component Footprint: Designator=R29 Old Footprint=0805 New Footprint=0603
+Added Member To Class: ClassName=pump Member=Component R16 100
+Added Member To Class: ClassName=pump Member=Component R17 100
+Added Member To Class: ClassName=pump Member=Component R18 10K
+Added Member To Class: ClassName=pump Member=Component R19 10K

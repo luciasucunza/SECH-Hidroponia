@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetJ5_6 Pin=J19-3
+Change Component Comment : Designator=C1 Old Comment=Cap New Comment=0.22uF
+Added Pin To Net: NetName=NetJ5_1 Pin=J5-1
+Added Pin To Net: NetName=NetJ5_1 Pin=J19-3
+Added Net: Name=NetJ5_1
+Added Pin To Net: NetName=NetJ5_2 Pin=J5-2
+Added Net: Name=NetJ5_2
+Added Pin To Net: NetName=NetJ5_3 Pin=J5-3
+Added Net: Name=NetJ5_3

@@ -16,6 +16,7 @@ volatile tREG08 Flags_ADC;
 float ph = 0;
 float ec = 0;
 float vdd = REF_VOLTAGE;
+float sol_temp = 0;
 
 /* Functions -----------------------------------------------------------------*/
 void adc_new_sample(uint8_t cmd)
@@ -43,7 +44,6 @@ void adc_task(void)
 {
   uint8_t i;
   uint32_t adc_raw = 0;
-  static float sol_temp;
   
   switch(ADC_State)
   {
@@ -52,12 +52,12 @@ void adc_task(void)
     if(!Flag_ADC_Electrode_Ready)
     break;
     
-    // Podría alimentarlos a toos por separado, pero mas o menos toman muestras
-    // en los mismos lapsos de tiempo, así que al pedo, directo prender todos aca
+    // Podrï¿½a alimentarlos a toos por separado, pero mas o menos toman muestras
+    // en los mismos lapsos de tiempo, asï¿½ que al pedo, directo prender todos aca
 //      HAL_GPIO_WritePin (ENA_P0_Port, ENA_P0_Pin, GPIO_PIN_SET);	Para alimentar adecuadamente el sensor
     
     //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! 
-    Flag_ADC_Electrode_Ready = 0;            //BORRAR, SOLO PARA PUREBA
+    // Flag_ADC_Electrode_Ready = 0;            //BORRAR, SOLO PARA PUREBA
     //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
 
     if(Flag_ADC_Cmd_Ph)                  // Pedido de valor de ph

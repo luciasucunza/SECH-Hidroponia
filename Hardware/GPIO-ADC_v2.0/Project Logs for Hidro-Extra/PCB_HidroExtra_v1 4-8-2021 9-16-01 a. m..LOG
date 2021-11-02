@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=NetJ5_5 Pin=J16-1
+Added Pin To Net: NetName=NetJ5_2 Pin=J16-1
+Added Member To Class: ClassName=connectors Member=Component J5 Entradas Analógicas

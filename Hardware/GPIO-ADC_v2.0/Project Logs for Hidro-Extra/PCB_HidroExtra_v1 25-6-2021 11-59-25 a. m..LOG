@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=J27 Old Footprint=CON_2_156 New Footprint=HDR1X2
+Change Component Footprint: Designator=J28 Old Footprint=CON_2_156 New Footprint=HDR1X2
+Change Component Comment : Designator=J28 Old Comment=Fuente New Comment=Fuente 3.3
+Change Component Comment : Designator=J27 Old Comment=Fuente New Comment=Fuente -

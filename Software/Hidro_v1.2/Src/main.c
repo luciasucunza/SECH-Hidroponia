@@ -146,10 +146,13 @@ int main(void)
   refresh_global_datetime();
   ui_init();
   clear_buttons();
-  //sd_init();
+  sd_init();
   
   HAL_TIM_Base_Start(&htim2);
 	HAL_GPIO_WritePin(DO8_GPIO_Port, DO8_Pin, GPIO_PIN_SET);  
+  
+  Flag_ADC_Electrode_Ready = 1;            //BORRAR, SOLO PARA PUREBA
+    
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -175,8 +178,7 @@ int main(void)
     //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! 
       Flag_ADC_Cmd_Ph=1;
       Flag_ADC_Cmd_Ec=1;
-      Flag_ADC_Electrode_Ready = 1;            //BORRAR, SOLO PARA PUREBA
-    //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+      //! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
     }
      
     adc_task();  

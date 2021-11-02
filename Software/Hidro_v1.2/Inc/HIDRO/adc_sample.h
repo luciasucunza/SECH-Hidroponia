@@ -17,6 +17,7 @@ bool adc_done(uint8_t);
 extern volatile tREG08 Flags_ADC;
 extern float ph;
 extern float ec;
+extern float sol_temp;
 
 /* Defines -------------------------------------------------------------------*/
 #define Flag_ADC_Cmd_Ph	             Flags_ADC.Bit._0
